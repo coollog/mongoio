@@ -80,8 +80,6 @@ module.exports = function (mongouri, callback) {
           listen: listen
         };
 
-        console.log('mongodb connected');
-
         callback(server);
       });
     })();

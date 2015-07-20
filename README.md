@@ -8,7 +8,9 @@ Install the necessary packages:
 
 ## Running
 
-Run the server: `node index`
+Dig a tunnel: `node dig host[:port] db tunnelname`
+Yell into the tunnel: `node yell mongouri tunnelname`
+Listen to the tunnel: `node listen mongouri tunnelname`
 
 ### Documentation
 
