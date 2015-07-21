@@ -60,7 +60,7 @@ require('./io')(mongouri, function (server) {
             assert.equal(null, err);
 
             console.log(role.type + ' hole');
-            console.log('mongodb://' + username + ':' + password + '@localhost/' + dbName);
+            console.log('mongodb://' + username + ':' + password + '@' + hostAndPort + '/' + dbName);
 
             if (index == 1) {
               process.exit(0);
