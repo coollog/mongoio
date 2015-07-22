@@ -45,6 +45,7 @@ int main (int argc, char *argv[]) {
     const char *tunnelName = argv[2];
     mongoc_uri_t *mongourit = mongoc_uri_new(mongouri);
     const char *dbName = mongoc_uri_get_database(mongourit);
+    printf("dbName: %s\n", dbName);
     mongoc_uri_destroy(mongourit);
 
     mongoc_init();
@@ -56,11 +57,13 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 
-    char collectionName[strlen(tunnelName) + 8];
+    char *collectionName = malloc(strlen(tunnelName) + 8);
     strcpy(collectionName, "stream_");
     strcat(collectionName, tunnelName);
+    printf("collectionName: %s\n", collectionName);
 
     mongoc_collection_t *collection = mongoc_client_get_collection(client, dbName, collectionName);
+    free(collectionName);
 
     printf("YELLING INTO TUNNEL %s\n", tunnelName);
 

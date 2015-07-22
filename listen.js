@@ -10,6 +10,8 @@ require('./io')(mongouri, function (server) {
   var collection = server.db.collection(collectionName);
 
   server.listen(collection, function (doc) {
-    process.stdout.write(doc.message);
+    try {
+        process.stdout.write(doc.message);
+    } catch (e) {}
   });
 });

@@ -1,10 +1,11 @@
 all: dig yell listen
+	mkdir -p bin
 
 dig: dig.c
-	gcc -o dig dig.c $(shell pkg-config --cflags --libs libmongoc-1.0)
+	gcc -o bin/dig dig.c $(shell pkg-config --cflags --libs libmongoc-1.0)
 
 yell: yell.c
-	gcc -o yell yell.c $(shell pkg-config --cflags --libs libmongoc-1.0)
+	gcc -o bin/yell yell.c $(shell pkg-config --cflags --libs libmongoc-1.0)
 
 listen: listen.c
-	gcc -o listen listen.c $(shell pkg-config --cflags --libs libmongoc-1.0)
+	gcc -o bin/listen listen.c $(shell pkg-config --cflags --libs libmongoc-1.0)
